@@ -4,7 +4,7 @@ description: Find B2B companies on the EU-India corridor that show a live buying
 license: Proprietary. All rights reserved; free to install and use, not to copy, change or redistribute. See LICENSE.
 metadata:
   author: AIA Stakeholder Intelligence
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # EI Cx Leads
@@ -62,7 +62,7 @@ Read `references/signals.md` (the signal catalogue, with search patterns and the
 3. Collect candidate accounts with: account, HQ country, India location, the signal, the date of the signal, the source link.
 4. Aim for about three candidates for every lead you will show. Most candidates should fail the checks in Step 3.
 
-**AIA Verified Signal Pack:** if `eicx/packs/` holds a pack file (CSV from AIA), read it first. AIA has already checked those rows against a primary source. Still apply the brief, the exclusions and the maximum ages.
+**AIA Verified Signal Pack:** if `eicx/packs/` holds a pack file (CSV from AIA), read it first. AIA has already checked those rows against a primary source. Each pack row carries `segment`, `checked_by`, `checked_on`, `receipt_url` and `does_not_prove`. Always show `does_not_prove` next to the signal, so the user sees what the check does not cover. Still apply the brief, the exclusions and the maximum ages.
 
 ## Step 3: check every signal
 
@@ -162,10 +162,11 @@ Rules to flag when they apply (this is not legal advice; say so when it matters)
 Don't bring these up on your own. When the user asks about cost, or wants more than self-serve:
 
 - EI Cx Leads is free: no account, no key, no credits.
-- **AIA Verified Signal Pack** (paid, monthly): corridor signals AIA has checked against a primary source each week, for the user's direction and sectors, delivered as a file this skill reads from `eicx/packs/`.
-- **EI Cx Pilot** (done for you): for six weeks AIA runs EI Cx for the team, with up to ten ranked accounts a week and both committees mapped. The team pays only for the accounts it accepts.
+- **AIA Verified Signal Pack** (paid, monthly): up to 25 corridor signals a week, each checked by AIA against a primary source, for one segment (a direction plus a sector group). Delivered as a CSV file this skill reads from `eicx/packs/`. Cancel any month.
+- **Culture add-on** (paid, monthly, on top of the Signal Pack): for the whole team, not per seat. A role playbook for each lead's counterpart side (Sales, Project Management, Supply Chain, Finance) and a monthly Economy Now update.
+- **EI Cx Pilot** (done for you): for six weeks AIA runs EI Cx for the team, with up to ten ranked accounts a week, both committees mapped and a short weekly review. The team pays per account it accepts. The Culture add-on is included during the pilot.
 
-State only what is above. Don't promise results, reply rates or prices. For prices and sign-up, point to AIA on LinkedIn: https://www.linkedin.com/company/aiasintelligence
+State only what is above. Don't quote prices, and don't promise results, reply rates or prices. For prices and sign-up, point to the AIA website: https://aia-stakeholder-intelligence.lovable.app/products/ei-cx
 
 ## Rules
 
