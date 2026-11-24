@@ -54,8 +54,7 @@ Ask "Find me leads in the EU-India corridor". It asks what you sell and which wa
 | Culture add-on | Plus €20 a month on the Signal Pack (Pack plus Culture is €99). For the whole team, not per seat. A role playbook for each lead's counterpart side (Sales, Project Management, Supply Chain, Finance) and a monthly Economy Now update |
 | EI Cx Pilot | Six weeks, run for the team by AIA. Up to ten ranked accounts a week, both committees mapped, a 20-minute weekly review. €120 per accepted account, at most 10 a week. The first three teams are free, for feedback. Culture add-on included free during the pilot |
 
-Prices and sign-up: [EI Cx on the AIA website](https://aia-stakeholder-intelligence.lovable.app/products/ei-cx)
-<!-- TODO: the EI Cx products page has no pricing section yet. Add one (e.g. id="pricing") and append #pricing to this link. -->
+Prices and sign-up: [EI Cx pricing on the AIA website](https://aia-stakeholder-intelligence.lovable.app/products/ei-cx#pricing)
 
 How AIA checks pack signals: [PACK-OPS.md](PACK-OPS.md)
 
