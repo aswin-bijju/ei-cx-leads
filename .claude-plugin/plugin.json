@@ -1,0 +1,11 @@
+{
+  "name": "ei-cx-leads",
+  "version": "0.1.0",
+  "description": "Find companies on the EU-India corridor with a live buying signal, see the source, age and verification of each signal, map who decides in Europe and in India, and time your outreach for both sides. Free, runs on your agent's own web search.",
+  "author": {
+    "name": "AIA Stakeholder Intelligence",
+    "url": "https://www.linkedin.com/company/aiasintelligence"
+  },
+  "homepage": "https://www.linkedin.com/company/aiasintelligence",
+  "keywords": ["leads", "sales", "eu-india", "gcc", "b2b", "buying-signals"]
+}

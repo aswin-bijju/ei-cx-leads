@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EI Cx Leads by AIA</title>
+<meta name="description" content="EI Cx Leads finds the companies on the EU-India corridor that show a live buying signal, shows where each signal comes from and how well it is checked, and maps who decides in Europe and in India. Free, inside the AI you already use.">
+<!-- Before launch: add the Impressum and Datenschutz pages (required for a German business site), and swap the LinkedIn links for the waitlist form and booking link. No external fonts or scripts are loaded on purpose (GDPR). -->
+<style>
+  :root {
+    --ink: #0E1726;
+    --ink-deep: #0A111C;
+    --primary: #3D93C4;
+    --primary-text: #24709B;
+    --highlight: #B8B8EC;
+    --accent: #4646B4;
+    --bg: #F2F8FB;
+    --surface: #FFFFFF;
+    --text: #0E1726;
+    --muted: #4A5568;
+    --line: #D5E3EC;
+    --on-dark: #EEF2F7;
+    --on-dark-muted: #B4BFCE;
+    --code-bg: #0E1726;
+    --code-text: #EEF2F7;
+    --radius: 14px;
+    --max: 1080px;
+    --font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A111C;
+      --surface: #111C2E;
+      --text: #EEF2F7;
+      --muted: #B4BFCE;
+      --line: #22324A;
+      --primary-text: #7DB9DC;
+      --accent: #B8B8EC;
+      --code-bg: #060B13;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A111C;
+    --surface: #111C2E;
+    --text: #EEF2F7;
+    --muted: #B4BFCE;
+    --line: #22324A;
+    --primary-text: #7DB9DC;
+    --accent: #B8B8EC;
+    --code-bg: #060B13;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: var(--primary-text); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } body { font-size: 16px; } }
+
+  /* Header and hero */
+  .hero { background: var(--ink-deep); color: var(--on-dark); }
+  nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--on-dark); text-decoration: none; font-weight: 600; letter-spacing: 0.01em; }
+  .brand svg { width: 52px; height: auto; color: var(--on-dark); }
+  .brand span { color: var(--on-dark-muted); font-weight: 500; }
+  .nav-links { display: flex; gap: 22px; }
+  .nav-links a { color: var(--on-dark-muted); text-decoration: none; font-size: 15px; }
+  .nav-links a:hover { color: var(--on-dark); }
+  @media (max-width: 760px) { .nav-links { display: none; } }
+  .hero-body { padding: 56px 0 72px; max-width: 760px; }
+  .eyebrow { display: inline-block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--highlight); margin-bottom: 18px; }
+  h1 { font-size: clamp(34px, 5.4vw, 56px); line-height: 1.08; margin: 0 0 22px; letter-spacing: -0.015em; }
+  h1 em { font-style: normal; color: var(--highlight); }
+  .lede { font-size: clamp(17px, 2vw, 20px); color: var(--on-dark-muted); margin: 0 0 32px; max-width: 640px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; border: 1px solid transparent; }
+  .btn-primary { background: var(--primary); color: var(--ink); }
+  .btn-primary:hover { background: #5AA6D1; }
+  .btn-ghost { color: var(--on-dark); border-color: #3A4A63; }
+  .btn-ghost:hover { border-color: var(--on-dark-muted); }
+  .fit { font-size: 15px; color: var(--on-dark-muted); margin: 0; }
+
+  /* Sections */
+  section { padding: 76px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .section-lede { color: var(--muted); max-width: 680px; margin: 0 0 40px; }
+  .grid { display: grid; gap: 18px; }
+  .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 920px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-3 { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; min-width: 0; }
+  .card h3 { font-size: 18px; margin: 0 0 8px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .step-n { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); color: var(--surface); font-weight: 700; font-size: 15px; margin-bottom: 14px; }
+
+  /* Example lead */
+  .example { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; }
+  @media (max-width: 920px) { .example { grid-template-columns: 1fr; } }
+  .lead { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .lead-tag { background: var(--ink); color: var(--highlight); font-size: 13px; padding: 10px 20px; letter-spacing: 0.02em; }
+  .lead-body { padding: 22px 22px 8px; }
+  .lead-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 14px; margin-bottom: 16px; }
+  .lead-title strong { font-size: 19px; }
+  .score { font-size: 14px; color: var(--muted); }
+  .score b { color: var(--text); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; }
+  .chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .chip.status { border-color: var(--primary); color: var(--primary-text); }
+  .chip.verified { border-color: var(--accent); color: var(--accent); }
+  dl.lead-rows { margin: 0; }
+  .lead-rows > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  @media (max-width: 480px) { .lead-rows > div { grid-template-columns: 1fr; gap: 2px; } }
+  .lead-rows dt { color: var(--muted); font-weight: 600; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 2px; }
+  .lead-rows dd { margin: 0; }
+  .checks { list-style: none; margin: 0; padding: 0; }
+  .checks li { position: relative; padding-left: 28px; margin: 0 0 14px; color: var(--muted); }
+  .checks li strong { color: var(--text); }
+  .checks li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+
+  /* Pricing */
+  .price-card { display: flex; flex-direction: column; }
+  .price-card.featured { border: 2px solid var(--accent); }
+  .card .price-name { font-size: 15px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px; }
+  .card .price { font-size: 34px; font-weight: 700; color: var(--text); margin: 0; line-height: 1.1; }
+  .card .price small { font-size: 16px; font-weight: 500; color: var(--muted); }
+  .card .price-note { font-size: 14px; color: var(--muted); margin: 6px 0 18px; min-height: 22px; }
+  .price-card ul { margin: 0 0 24px; padding-left: 20px; color: var(--muted); font-size: 15.5px; flex: 1; }
+  .price-card li { margin-bottom: 8px; }
+  .btn-solid { background: var(--ink); color: var(--on-dark); }
+  .btn-solid:hover { background: #1B2A42; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-solid { background: var(--primary); color: var(--ink); } }
+  :root[data-theme="dark"] .btn-solid { background: var(--primary); color: var(--ink); }
+  .btn-outline { border-color: var(--line); color: var(--text); }
+  .btn-outline:hover { border-color: var(--muted); }
+
+  /* Install */
+  .code { position: relative; background: var(--code-bg); color: var(--code-text); border-radius: 10px; padding: 16px 16px 16px 16px; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 14px; line-height: 1.7; margin: 14px 0 12px; }
+  .code pre { margin: 0; overflow-x: auto; padding-right: 64px; }
+  .copy { position: absolute; top: 10px; right: 10px; background: #22324A; color: var(--code-text); border: 0; border-radius: 6px; font-size: 12.5px; padding: 5px 10px; cursor: pointer; font-family: var(--font); }
+  .copy:hover { background: #2E4262; }
+  .small { font-size: 14px; color: var(--muted); }
+
+  /* FAQ */
+  .faq { max-width: 780px; }
+  details { border-top: 1px solid var(--line); padding: 4px 0; }
+  details:last-child { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; list-style: none; padding: 16px 32px 16px 0; font-weight: 600; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-size: 22px; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "\2212"; }
+  details p { margin: 0 0 18px; color: var(--muted); }
+
+  /* Closing band and footer */
+  .band { background: var(--ink-deep); color: var(--on-dark); border-top: 0; }
+  .band h2 { color: var(--on-dark); }
+  .band p { color: var(--on-dark-muted); max-width: 620px; margin: 0 0 28px; }
+  footer { background: var(--ink-deep); color: var(--on-dark-muted); border-top: 1px solid #1B2A42; padding: 28px 0; font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: var(--on-dark-muted); text-decoration: none; margin-left: 18px; }
+  footer a:first-child { margin-left: 0; }
+  footer a:hover { color: var(--on-dark); }
+  :focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top" aria-label="AIA Stakeholder Intelligence, EI Cx Leads">
+        <svg viewBox="5 70 246 116" role="img" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M13 186 L60 70 L107 186 L85 186 L74.47 160 L45.53 160 L35 186 Z M60 124.3 L52.83 142 L67.17 142 Z M149 186 L196 70 L243 186 L221 186 L210.47 160 L181.53 160 L171 186 Z M196 124.3 L188.83 142 L203.17 142 Z"/><path fill="currentColor" d="M117 70 L139 70 L139 186 L117 186 Z"/><path fill="currentColor" d="M5 142 L106 142 L106 160 L5 160 Z M150 142 L251 142 L251 160 L150 160 Z"/></svg>
+        EI Cx Leads <span>by AIA</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#example">Example</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#install">Install</a>
+      </div>
+    </nav>
+    <div class="hero-body" id="top">
+      <span class="eyebrow">EU-India corridor leads</span>
+      <h1>Corridor leads with <em>a reason to call this week.</em></h1>
+      <p class="lede">EI Cx Leads finds the companies on the EU-India corridor that show a live buying signal. It shows where each signal comes from and how well it is checked, and maps who decides in Europe and in India. Free, inside the AI you already use.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#install">Install free</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/company/aiasintelligence" rel="noopener">Book a pilot call</a>
+      </div>
+      <p class="fit">For B2B teams selling from Europe into India or from India into Europe. Deals above &euro;50,000.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="section-lede">It runs on your AI's own web search. No account, no key, no data bought from anyone.</p>
+      <div class="grid grid-4">
+        <div class="card"><span class="step-n">1</span><h3>Tell it what you sell</h3><p>And which way it goes. It fills in the rest of the brief from your website and shows it back before it searches.</p></div>
+        <div class="card"><span class="step-n">2</span><h3>It finds the signals</h3><p>Capability centres, new Indian entities, senior hires, tenders, sourcing moves and CBAM exposure, searched in English and German.</p></div>
+        <div class="card"><span class="step-n">3</span><h3>It checks each one</h3><p>Announced is kept apart from done, reported from confirmed. Anything it cannot source is dropped, and it tells you why.</p></div>
+        <div class="card"><span class="step-n">4</span><h3>You get ten that matter</h3><p>Up to ten ranked accounts a week, with both sides of the committee and an act-by date. In Claude Code, also as a CSV.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="example">
+    <div class="wrap example">
+      <div>
+        <h2>What a lead looks like</h2>
+        <p class="section-lede">Every lead carries its evidence. You can open the source, see how old it is, and see what it does not prove yet.</p>
+        <ul class="checks">
+          <li><strong>Announced is not done.</strong> An MoU is not a contract. Status and verification are two separate fields, never merged.</li>
+          <li><strong>Two regions, one committee.</strong> The roles at the European HQ and in India, plus the works council step for German, Austrian and Dutch accounts.</li>
+          <li><strong>Timing on both calendars.</strong> India's April to March fiscal year, Diwali, European holidays and works-council lead times.</li>
+          <li><strong>Nothing invented.</strong> People are named only when a public source names them in that role. No guessed emails or phone numbers.</li>
+        </ul>
+      </div>
+      <article class="lead" aria-label="Example lead with a fictional company">
+        <div class="lead-tag">Example with a fictional company</div>
+        <div class="lead-body">
+          <div class="lead-title">
+            <strong>1. Rheinwerk Automation</strong>
+            <span class="score">Germany &rarr; Pune &middot; score <b>2.7</b> &middot; <b>high</b></span>
+          </div>
+          <dl class="lead-rows">
+            <div><dt>Signal</dt><dd>Announced a 300-seat engineering centre in Pune, 12 days ago.
+              <div class="chips"><span class="chip status">announced</span><span class="chip verified">confirmed</span><span class="chip">state release + 14 live job posts</span></div></dd></div>
+            <div><dt>Why it fits</dt><dd>Industrial automation, 4,000 staff, building engineering capacity in India.</dd></div>
+            <div><dt>Committee</dt><dd>Europe: CIO (named in the release), IT procurement (to find). India: centre head (named in the release). Works council: needed if your tool measures engineers' activity.</dd></div>
+            <div><dt>Act by</dt><dd>11 December, before the German Christmas break. Budget talks for India's next fiscal year start in January.</dd></div>
+            <div><dt>Angle</dt><dd>Teams split between Karlsruhe and Pune need one place for engineering work from the first day.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2>Start free. Pay for checked signals or for our time.</h2>
+      <p class="section-lede">The skill is free and stays free. When you want signals we have checked against a primary source, or want us to run it for you, there are two paid options.</p>
+      <div class="grid grid-3">
+        <div class="card price-card">
+          <p class="price-name">EI Cx Leads</p>
+          <p class="price">&euro;0</p>
+          <p class="price-note">No account, no key, no credits</p>
+          <ul>
+            <li>Up to ten ranked accounts a week</li>
+            <li>Signal, source, age and verification on each</li>
+            <li>Committee in both regions, act-by date, angle</li>
+            <li>Claude Code, Claude, Codex, Cursor</li>
+          </ul>
+          <a class="btn btn-outline" href="#install">Install free</a>
+        </div>
+        <div class="card price-card featured">
+          <p class="price-name">Verified Signal Pack</p>
+          <p class="price">&euro;79 <small>a month</small></p>
+          <p class="price-note">Founding price for the first 20 teams</p>
+          <ul>
+            <li>25 corridor signals a week, checked by AIA against a primary source</li>
+            <li>Your direction and up to three sectors</li>
+            <li>Delivered as a file EI Cx Leads reads</li>
+            <li>Cancel any month</li>
+          </ul>
+          <a class="btn btn-solid" href="https://www.linkedin.com/company/aiasintelligence" rel="noopener">Join the waitlist</a>
+        </div>
+        <div class="card price-card">
+          <p class="price-name">EI Cx Pilot</p>
+          <p class="price">Pay per result</p>
+          <p class="price-note">First three teams free, for feedback</p>
+          <ul>
+            <li>Six weeks, run for you by AIA</li>
+            <li>Up to ten ranked accounts a week, both committees mapped</li>
+            <li>A 20-minute review each week</li>
+            <li>You pay only for the accounts you accept</li>
+          </ul>
+          <a class="btn btn-outline" href="https://www.linkedin.com/company/aiasintelligence" rel="noopener">Book a pilot call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>Install</h2>
+      <p class="section-lede">Then ask: <em>&ldquo;Find me leads in the EU-India corridor.&rdquo;</em></p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Claude Code</h3>
+          <p>The plugin brings the skill. Type these in Claude Code:</p>
+          <div class="code"><pre><code id="cc">/plugin marketplace add aswin-bijju/ei-cx-leads
+/plugin install ei-cx-leads@aia</code></pre><button class="copy" type="button" data-copy="cc">Copy</button></div>
+          <p class="small">Your brief and each week's list are kept in a <code>eicx/</code> folder, so the next run shows what changed.</p>
+        </div>
+        <div class="card">
+          <h3>Claude app</h3>
+          <p>On claude.ai or the desktop app, download the skill and upload it under Skills in Settings. Turn on web search.</p>
+          <p style="margin-top:16px"><a class="btn btn-solid" href="ei-cx-leads.zip" download>Download ei-cx-leads.zip</a></p>
+          <p class="small" style="margin-top:12px">About 12 KB. Three text files and the licence, no code. Free to use; not to copy, change or pass on.</p>
+        </div>
+        <div class="card">
+          <h3>Codex, Cursor and others</h3>
+          <p>Copy the <code>ei-cx-leads</code> folder from the zip into your agent's skills folder. It needs web search to work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap faq">
+      <h2>Questions</h2>
+      <details><summary>Is it really free?</summary><p>Yes. It runs on your AI's own web search, so there's no account, no key and nothing to top up. We earn from the Verified Signal Pack and the EI Cx Pilot. The skill is free to install and use for your own or your organisation's work. All rights are reserved, so please don't copy, change or redistribute it.</p></details>
+      <details><summary>Where do the signals come from?</summary><p>Public sources only: company sites and career pages, company registries, stock exchanges, government releases, the EU's tender journal (TED) and the business press in English and German. Every lead links to its source.</p></details>
+      <details><summary>Does it send messages for me?</summary><p>No. It drafts first messages when you ask, and you send them from your own account.</p></details>
+      <details><summary>Does it give me emails and phone numbers?</summary><p>No. It gives the roles to reach, and names people only when a public source names them in that role. We don't guess contact details.</p></details>
+      <details><summary>What about GDPR and German email rules?</summary><p>It flags them when they apply. In Germany, marketing emails need the recipient's prior consent under &sect; 7 UWG, between businesses too, so it suggests a LinkedIn note, an introduction or a call instead. It is not legal advice.</p></details>
+      <details><summary>What is EI Cx?</summary><p>AIA's decision engine for B2B teams selling between Europe and India. Instead of dashboards, it gives a sales leader a short ranked list of decisions, each with its evidence. EI Cx Leads is its lead-finding part.</p></details>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Find this week's ten.</h2>
+      <p>Install it, tell it what you sell, and see which corridor accounts have a reason to talk to you now.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#install">Install free</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/company/aiasintelligence" rel="noopener">Talk to AIA</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 AIA Stakeholder Intelligence</span>
+    <span>
+      <a href="https://www.linkedin.com/company/aiasintelligence" rel="noopener">LinkedIn</a>
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-copy"));
+      var text = el ? el.textContent : "";
+      var done = function (label) { btn.textContent = label; setTimeout(function () { btn.textContent = "Copy"; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done("Copied"); }, function () { done("Select and copy"); });
+      } catch (e) { done("Select and copy"); }
+    });
+  });
+</script>
+</body>
+</html>

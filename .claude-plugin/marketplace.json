@@ -1,0 +1,17 @@
+{
+  "name": "aia",
+  "owner": {
+    "name": "AIA Stakeholder Intelligence",
+    "url": "https://www.linkedin.com/company/aiasintelligence"
+  },
+  "plugins": [
+    {
+      "name": "ei-cx-leads",
+      "source": "./",
+      "description": "EU-India corridor leads with the buying signal, its source and age, and the buying committee in both regions."
+    }
+  ],
+  "metadata": {
+    "description": "AIA Stakeholder Intelligence plugins for Claude Code: leads and decisions for B2B teams selling between Europe and India."
+  }
+}
