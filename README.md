@@ -50,10 +50,14 @@ Ask "Find me leads in the EU-India corridor". It asks what you sell and which wa
 | | |
 | --- | --- |
 | EI Cx Leads | Free. No account, no key, no credits |
-| AIA Verified Signal Pack | Monthly. Signals AIA has checked against a primary source, delivered as a file the skill reads |
-| EI Cx Pilot | Six weeks, done for you. Pay only for the accounts you accept |
+| Verified Signal Pack | €79 a month, founding price for the first 10 teams per segment (list price €99 later). Up to 25 signals a week, checked by AIA against a primary source, for one segment (a direction plus a sector group). Delivered as a CSV file the skill reads. Cancel any month |
+| Culture add-on | Plus €20 a month on the Signal Pack (Pack plus Culture is €99). For the whole team, not per seat. A role playbook for each lead's counterpart side (Sales, Project Management, Supply Chain, Finance) and a monthly Economy Now update |
+| EI Cx Pilot | Six weeks, run for the team by AIA. Up to ten ranked accounts a week, both committees mapped, a 20-minute weekly review. €120 per accepted account, at most 10 a week. The first three teams are free, for feedback. Culture add-on included free during the pilot |
 
-Ask AIA for current prices: https://www.linkedin.com/company/aiasintelligence
+Prices and sign-up: [EI Cx on the AIA website](https://aia-stakeholder-intelligence.lovable.app/products/ei-cx)
+<!-- TODO: the EI Cx products page has no pricing section yet. Add one (e.g. id="pricing") and append #pricing to this link. -->
+
+How AIA checks pack signals: [PACK-OPS.md](PACK-OPS.md)
 
 ## Limits
 
@@ -68,6 +72,7 @@ All rights reserved. You may install and use EI Cx Leads free of charge for your
 ## Files
 
 - `LICENSE`: the terms above in full. It is also packed into the zip.
+- `PACK-OPS.md`: how AIA checks the signals in the Verified Signal Pack.
 - `skills/ei-cx-leads/SKILL.md`: what your agent reads.
 - `skills/ei-cx-leads/references/`: the signal catalogue and the source list.
 - `scripts/build_zip.py`: builds `site/ei-cx-leads.zip` for upload to Claude.
