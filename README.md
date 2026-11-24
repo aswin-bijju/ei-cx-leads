@@ -37,7 +37,7 @@ claude plugin marketplace add "<path to this folder>"
 claude plugin install ei-cx-leads@aia
 ```
 
-**Claude (claude.ai or desktop):** download [ei-cx-leads.zip](site/ei-cx-leads.zip) and upload it under Skills in Settings. Turn on web search.
+**Claude (claude.ai or desktop):** download [ei-cx-leads.zip](https://github.com/aswin-bijju/ei-cx-leads/releases/latest/download/ei-cx-leads.zip) and upload it under Skills in Settings. Turn on web search.
 
 **Codex, Cursor and other agents:** copy `skills/ei-cx-leads` into the agent's skills folder.
 
